@@ -4,104 +4,204 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Derma VQA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #007bff; /* A vibrant blue */
+            --secondary-color: #6c757d; /* A subtle grey */
+            --background-light: #f8f9fa;
+            --background-dark: #e9ecef;
+            --text-dark: #212529;
+            --text-light: #495057;
+            --border-color: #dee2e6;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
             margin: 0;
             padding: 40px 20px;
+            box-sizing: border-box; /* Includes padding in element's total width and height */
         }
 
         .container {
             max-width: 1200px;
             width: 100%;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem; /* Larger heading */
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            color: var(--text-light);
+            line-height: 1.7;
         }
 
         .description {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-light); /* More prominent shadow */
+            text-align: left; /* Align text to the left */
         }
 
         .description h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .description p {
-            margin-bottom: 16px;
-            text-align: justify;
+            text-align: center; /* Center the heading */
+            margin-bottom: 25px;
+            font-size: 2.8rem;
+            color: var(--primary-color);
         }
 
         .media {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 40px;
+            justify-content: space-between; /* Revert to original spacing */
+            align-items: center; /* Revert to original alignment */
+            gap: 20px; /* Revert to original gap */
+            margin-bottom: 60px;
             flex-wrap: wrap;
         }
 
-        .media img, .media iframe {
-            width: 48%;
-            aspect-ratio: 210 / 297; /* A4 ratio */
+        .media img {
+            width: 48%; /* Original width */
+            aspect-ratio: 210 / 297; /* Original A4 ratio for poster */
             object-fit: cover;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .media iframe {
+            width: 48%; /* Revert iframe width to match poster */
+            aspect-ratio: 16 / 9; /* Keep modern video ratio for iframe */
+            object-fit: cover;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .media img:hover, .media iframe:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow-medium);
         }
 
         .team {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
+            margin-top: 50px;
         }
 
         .team-member {
             background-color: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 200px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            width: 220px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px var(--shadow-medium);
         }
 
         .team-member img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .team-member p {
-            margin: 5px 0;
+            margin: 4px 0;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .team-member p.role {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin-top: 8px;
+        }
+
+        .team-member p.id {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            opacity: 0.7;
+            margin-top: 5px;
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .description {
+                padding: 20px;
+            }
+
             .media {
                 flex-direction: column;
+                align-items: center;
             }
 
             .media img, .media iframe {
-                width: 100%;
+                width: 100%; /* Keep 100% width on small screens */
+            }
+            .media img {
+                aspect-ratio: 210 / 297; /* Original A4 ratio for poster on small screens */
+            }
+            .media iframe {
+                 aspect-ratio: 16 / 9; /* Keep modern video ratio on small screens */
             }
 
             .team {
                 flex-direction: column;
                 align-items: center;
+                gap: 25px;
+            }
+
+            .team-member {
+                width: 80%;
+                max-width: 300px;
+                padding: 20px;
+            }
+
+            .team-member img {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Description Section -->
         <div class="description">
             <h2>Visual Question Answering in Dermatology</h2>
             <p>
@@ -124,37 +224,35 @@
             </p>
         </div>
 
-        <!-- Poster and Video Section -->
         <div class="media">
             <img src="generated_poster.png" alt="Project Poster" />
-            <iframe 
-                src="https://www.youtube.com/embed/hyfSBMIWq7k" 
-                title="Demo Video" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            <iframe
+                src="https://www.youtube.com/embed/hyfSBMIWq7k"
+                title="Demo Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
         </div>
 
-        <!-- Team Members Section -->
         <div class="team">
             <div class="team-member">
                 <img src="member1.jpeg" alt="Bengü Barış Balkan" />
                 <p><strong>Bengü Barış Balkan</strong></p>
-                <p>Artificial Intelligence Engineering</p>
-                <p>2200765011</p>
+                <p class="role">Artificial Intelligence Engineering</p>
+                <p class="id">2200765011</p>
             </div>
             <div class="team-member">
                 <img src="member2.jpeg" alt="Furkan Özyurt" />
                 <p><strong>Furkan Özyurt</strong></p>
-                <p>Artificial Intelligence Engineering</p>
-                <p>2200765018</p>
+                <p class="role">Artificial Intelligence Engineering</p>
+                <p class="id">2200765018</p>
             </div>
             <div class="team-member">
                 <img src="member3.jpeg" alt="Mehmet Akif Özgür" />
                 <p><strong>Mehmet Akif Özgür</strong></p>
-                <p>Computer Engineering</p>
-                <p>2200356832</p>
+                <p class="role">Computer Engineering</p>
+                <p class="id">2200356832</p>
             </div>
         </div>
     </div>
