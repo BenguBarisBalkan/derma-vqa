@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #007bff; /* A vibrant blue */
-            --secondary-color: #6c757d; /* A subtle grey */
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
             --background-light: #f8f9fa;
             --background-dark: #e9ecef;
             --text-dark: #212529;
@@ -29,7 +29,7 @@
             justify-content: center;
             margin: 0;
             padding: 40px 20px;
-            box-sizing: border-box; /* Includes padding in element's total width and height */
+            box-sizing: border-box;
         }
 
         .container {
@@ -39,7 +39,7 @@
         }
 
         h2 {
-            font-size: 2.5rem; /* Larger heading */
+            font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--primary-color);
             font-weight: 700;
@@ -57,12 +57,12 @@
             background-color: white;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px var(--shadow-light); /* More prominent shadow */
-            text-align: left; /* Align text to the left */
+            box-shadow: 0 10px 30px var(--shadow-light);
+            text-align: left;
         }
 
         .description h2 {
-            text-align: center; /* Center the heading */
+            text-align: center;
             margin-bottom: 25px;
             font-size: 2.8rem;
             color: var(--primary-color);
@@ -70,16 +70,16 @@
 
         .media {
             display: flex;
-            justify-content: space-between; /* Revert to original spacing */
-            align-items: center; /* Revert to original alignment */
-            gap: 20px; /* Revert to original gap */
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
             margin-bottom: 60px;
             flex-wrap: wrap;
         }
 
         .media img {
-            width: 48%; /* Original width */
-            aspect-ratio: 210 / 297; /* Original A4 ratio for poster */
+            width: 48%;
+            aspect-ratio: 210 / 297;
             object-fit: cover;
             border: none;
             border-radius: 12px;
@@ -88,8 +88,8 @@
         }
 
         .media iframe {
-            width: 48%; /* Revert iframe width to match poster */
-            aspect-ratio: 16 / 9; /* Keep modern video ratio for iframe */
+            width: 48%;
+            aspect-ratio: 16 / 9;
             object-fit: cover;
             border: none;
             border-radius: 12px;
@@ -157,6 +157,26 @@
             margin-top: 5px;
         }
 
+        .download-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .download-button a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px var(--shadow-light);
+        }
+
+        .download-button a:hover {
+            background-color: #0056b3;
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 20px 10px;
@@ -172,13 +192,15 @@
             }
 
             .media img, .media iframe {
-                width: 100%; /* Keep 100% width on small screens */
+                width: 100%;
             }
+
             .media img {
-                aspect-ratio: 210 / 297; /* Original A4 ratio for poster on small screens */
+                aspect-ratio: 210 / 297;
             }
+
             .media iframe {
-                 aspect-ratio: 16 / 9; /* Keep modern video ratio on small screens */
+                aspect-ratio: 16 / 9;
             }
 
             .team {
@@ -203,7 +225,7 @@
 <body>
     <div class="container">
         <div class="description">
-            <h2>Visual Question Answering in Dermatology</h2>
+            <h2>DermAssist: An AI-Powered Dermatology Support System</h2>
             <p>
                 Dermatological diseases pose a significant global health challenge, often hindered by a shortage of specialists and limited access to immediate medical consultations. To address these issues, we propose an interactive web-based dermatological assistant integrating advanced AI technologies.
             </p>
@@ -222,11 +244,18 @@
             <p>
                 This tool aims to provide scalable, reliable, and interpretable preliminary dermatological consultations, particularly benefiting regions with limited access to specialists, thereby reducing diagnostic delays and empowering informed patient decisions about dermatological health.
             </p>
+
+            <!-- PDF Download Button -->
+            <div class="download-button">
+                <a href="report.pdf" target="_blank">📄 Download Project Report (PDF)</a>
+            </div>
         </div>
 
         <div class="media">
-            <img src="new_poster.png" alt="Project Poster" />
-            <iframe width="2028" height="811" src="https://www.youtube.com/embed/_wJkd8TXyXA" title="Derm-Assist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <img src="poster.jpg" alt="Project Poster" />
+            <iframe src="https://www.youtube.com/embed/_wJkd8TXyXA" title="Derm-Assist"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
         <div class="team">
